@@ -89,9 +89,27 @@
 					$('.messageButton').prop("disabled", true);
 					console.log("prop");
     			}
-    		});
-
+    		});   		
 		});
+		
+		function previewImage(input) {
+			if (input.files && input.files[0]) {
+			    var reader = new FileReader();
+			    reader.onload = function (e) {
+			      $('#preview')
+			        .attr('src', e.target.result)
+			        .width(150)
+			        .height(150);			        
+			      
+			      $('#previewDiv')
+			      	.attr({
+	    				hidden: false	
+	    			});			      
+			      
+			    };
+			   	reader.readAsDataURL(input.files[0]);
+			}
+		};
 	</script>	
 </head>
 
@@ -161,10 +179,23 @@
             			
 						<div style="position: relative;" id="addMessageDiv2" class="addMessageDiv">
     						<textarea name="addMessageInput" class="addMessageInput form-control" style="padding-right: 30px; overflow: hidden; resize:none; padding-top: 10px; height: 40px;" placeholder="What's happening?" maxlength="140"></textarea>
-						</div>
+						</div>						
 						
 						<div class="addMessageIconsDiv" style="padding-right: 15px;">
-							<p style="color:#3366BB; font-size: 15pt;"><a href="#"><span class = "col-md-1 glyphicon glyphicon-camera" aria-hidden = "true" style="display: block; padding-right: 30px;"></span></a>
+						
+						
+							<div id="previewDiv" style="siplay:block;padding:15px 0px 15px 0px;" hidden="true">
+								<img id="preview" src="#" alt="your image"/>
+							</div>
+						
+							<div class="col-md-1" style="text-align: center; overflow: hidden; border: none;display:block;">							
+								<span class = "glyphicon glyphicon-camera" aria-hidden = "true" style="display: block; padding-right: 20px;font-size: 15pt;color: #3366BB;"></span>
+								<input type="file" onchange="previewImage(this);" name="file" id="file" size="1" style="margin-top: -50px; margin-left:-410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 60px; cursor: pointer;">
+							</div>
+							
+							
+							<p style="color:#3366BB; font-size: 15pt;">
+							<!-- <a href="#"><span class = "col-md-1 glyphicon glyphicon-camera" aria-hidden = "true" style="display: block; padding-right: 30px;"></span></a> -->
         					<a href="#"><span class = "col-md-1 glyphicon glyphicon-map-marker" aria-hidden = "true" style="display: block; padding-right: 30px;"></span></a>
         					<a href="#"><span class = "col-md-1 glyphicon glyphicon-film" aria-hidden = "true" style="display: block; padding-right: 30px;"></span></a>        					
         					<a href="#"><span class = "col-md-1 glyphicon glyphicon-list-alt" aria-hidden = "true" style="display: block; padding-right: 30px;"></span></a></p>
