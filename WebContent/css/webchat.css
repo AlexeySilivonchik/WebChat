@@ -1,0 +1,27 @@
+.messageLink a{
+	color: black;
+}
+
+.messageLink a:hover{
+	color: #3366BB;
+}
+
+.messageIcons a{
+	color: gray;
+}
+
+.messageIcons a:hover{
+	color: #3366BB;
+}
+
+.retweet a:hover{
+	color: green;
+}
+
+.like a:hover{
+	color: purple;
+}
+
+.navTab :hover{
+	color: #3366BB;
+}
