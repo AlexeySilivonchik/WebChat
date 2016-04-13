@@ -24,7 +24,7 @@ public class MainServlet extends HttpServlet{
 		try {
 			
 			Action action = ActionFactory.getAction(request);
-		    String view = action.execute(request, response);
+		    String view = action.execute(request, response); 
 		    
 		    System.out.println("action: " + action);
 		    System.out.println("view: " + view);
@@ -33,7 +33,7 @@ public class MainServlet extends HttpServlet{
 		       request.getRequestDispatcher(view).forward(request, response); 
 		    }
 		    else {
-		       response.sendRedirect(view); 
+		       response.sendRedirect(view);  
 		    }
 			
 			/*HttpSession session = request.getSession();			

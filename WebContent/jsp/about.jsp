@@ -18,10 +18,11 @@
 
     <title>Welcome to WebChat - Login or Sign up</title>
 
-    <link href="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">        
+    <link href="${pageContext.request.contextPath}/css/webchat.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/js/jquery-1.12.2.min.js"></script>
     <script src="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
-    <link href="${pageContext.request.contextPath}/css/webchat.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/webchat.js"></script>
 </head>
 
 <body style="background-color: #f1f1f1;">	
@@ -35,17 +36,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/">WebChat</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/"><fmt:message key="nav.home"/></a>
+                    <li class="navTabAnimation">
+                        <a href="${pageContext.request.contextPath}/" class="navTab"><fmt:message key="nav.home"/></a>
+                        <span class="anime"></span>
                     </li>
-                    <li>
-                        <a href="#"><fmt:message key="nav.about"/></a>
+                    <li class="navTabAnimation">
+                        <a href="${pageContext.request.contextPath}/about" class="navTab"><fmt:message key="nav.about"/></a>
+                        <span class="anime"></span>
                     </li>
-                </ul>                          			 
+                </ul>                       			 
                 
                 <ul class="nav navbar-nav navbar-right" role="navigation">       				 
         			<li class="dropdown">
@@ -62,7 +64,7 @@
     </nav>
 	
 	<div class="container">
-		<h1>About</h1>
+		<h1>About Page</h1>
 	</div>
 </body>
 

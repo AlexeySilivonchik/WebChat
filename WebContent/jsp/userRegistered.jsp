@@ -101,7 +101,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li style="height:60px;">
-                        <a href="${pageContext.request.contextPath}/home" class="navTab" style="padding-right:0px;padding-left:0px;padding-bottom:7px;margin-right:15px;margin-left:15px;"><span style="font-size: 14pt;height:80px;"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <fmt:message key="nav.home"/></span></a>
+                        <a href="${pageContext.request.contextPath}/" class="navTab" style="padding-right:0px;padding-left:0px;padding-bottom:7px;margin-right:15px;margin-left:15px;"><span style="font-size: 14pt;height:80px;"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <fmt:message key="nav.home"/></span></a>
                         <span class="anime" style="background-color:blue;width:100%;height:0px;"></span>
                     </li>
                     <li style="height:60px;">

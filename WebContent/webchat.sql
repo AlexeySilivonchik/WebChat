@@ -9,7 +9,7 @@ create table user(
 	name varchar(24) not null,
 	uniqueName varchar(24) not null,
 	role varchar(16) not null,
-	password varchar(24) not null,
+	password varchar(64) not null,
 	description varchar(128) not null,
 	address varchar(24) not null,
 	site varchar(32) not null,
@@ -24,7 +24,7 @@ create table user(
 );
 
 insert into user(name, uniqueName, role, password, description, address, site, logoURL, headerURL, mediaFilesAmount, followingAmount, followersAmount, likesAmount, messagesAmount) values
-('Aleksei Silivonchik', 'SAleksei', 'USER', 'qwerty', 
+('Aleksei Silivonchik', 'SAleksei', 'USER', '$2a$10$pmq6yXcuUrH2kN4Eltzvw.VTJGWvx5a69LUGE9CJpL26KRJ.SuDMe', 
 	'Java Software Developer. Main technologies are Java, Spring, Javascript, CSS, Bootstrap, Mysql, JEE.', 'Kuprevicha 1/1', 'http://saleksei.blog.com', 
 	'/images/image.jpg', '/images/wide.jpg', 3, 1, 0, 4, 4),
 ('Artem Adamyan', 'Johnny', 'USER', 'qwerty', 

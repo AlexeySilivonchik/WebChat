@@ -46,7 +46,7 @@ public class UserServlet extends HttpServlet{
 			request.setAttribute("mediaList", mediaList);
 			request.setAttribute("followingUsers", followingUsers);
 			request.setCharacterEncoding("UTF-8");
-			request.getRequestDispatcher("/user.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/user.jsp").forward(request, response);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ServletException e) {

@@ -17,7 +17,7 @@ public class AboutPageServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response){
 		
 		try {
-			request.getRequestDispatcher("/about.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsp/about.jsp").forward(request, response);
 		} catch (ServletException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

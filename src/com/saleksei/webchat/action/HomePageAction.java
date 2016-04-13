@@ -21,7 +21,7 @@ public class HomePageAction implements Action{
 			String userName = (String) session.getAttribute("user");
 			view = "/reguser/" + userName;
 		} else{
-			view = "/index.jsp"; 
+			view = "/jsp/index.jsp"; 
 		}
 			
 		return view;

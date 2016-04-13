@@ -8,25 +8,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
+import com.saleksei.webchat.dao.UserDAOImpl;
+import com.saleksei.webchat.model.User;
 import com.saleksei.webchat.model.UserType;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet{
 	private static final long serialVersionUID = 262167633020464701L;
-
-	private final String userID = "saleksei";
-	private final String password = "password";
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response){
-		String user = request.getParameter("user");
-		String pwd = request.getParameter("pwd");
+		String name = request.getParameter("user");
+		String pwd = request.getParameter("pwd");		
 		
-		System.out.println(request.getRequestURL());
+		UserDAOImpl userDAO = new UserDAOImpl();
+		User user = userDAO.getUserByUniqueName(name);
 		
-		if(userID.equals(user) && password.equals(pwd)){
+		if(user != null ? BCrypt.checkpw(pwd, user.getPassword()) : false){			
 			HttpSession session = request.getSession();
-			session.setAttribute("user", userID);
+			session.setAttribute("user", name);
 			session.setAttribute("userType", UserType.USER);
 			session.setMaxInactiveInterval(30*60);
 
