@@ -1,4 +1,11 @@
-create database webchat;
+
+drop database webchat;
+
+CREATE DATABASE webchat
+  DEFAULT CHARACTER SET utf8
+  DEFAULT COLLATE utf8_general_ci;
+  
+use webchat;
 
 drop table if exists following;
 drop table if exists medialink;
@@ -21,7 +28,7 @@ create table user(
 	likesAmount int not null,
 	messagesAmount int not null,
 	primary key(id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 insert into user(name, uniqueName, role, password, description, address, site, logoURL, headerURL, mediaFilesAmount, followingAmount, followersAmount, likesAmount, messagesAmount) values
 ('Aleksei Silivonchik', 'SAleksei', 'USER', '$2a$10$pmq6yXcuUrH2kN4Eltzvw.VTJGWvx5a69LUGE9CJpL26KRJ.SuDMe', 
@@ -56,7 +63,7 @@ create table message(
 	fk_user int not null,
 	primary key(id),
 	foreign key (fk_user) references user(id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 insert into message(text, fk_user, likes, retweets) values 
 ('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.', 1, 0, 0),
@@ -64,6 +71,7 @@ insert into message(text, fk_user, likes, retweets) values
 ('Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 1, 4, 5),
 ('Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 1, 3, 2),
 ('Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 1, 3, 2);
+('Привет че как дела.', 1, 3, 2);
 
 
 create table medialink(
@@ -74,19 +82,19 @@ create table medialink(
 	primary key(id),
 	foreign key (fk_user) references user(id),
 	foreign key (fk_message) references message(id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 insert into medialink(link, fk_user, fk_message) values
-('/images/it3.jpg', 1, 1),
-('/images/it1.jpg', 1, 3),
-('/images/it4.jpg', 1, 3),
-('/images/it1.jpg', 1, 4),
-('/images/it3.jpg', 1, 4),
-('/images/it4.jpg', 1, 4),
-('/images/it4.jpg', 1, 5),
-('/images/it1.jpg', 1, 5),
-('/images/it3.jpg', 1, 5),
-('/images/it4.jpg', 1, 5);
+('SAleksei/it3.jpg', 1, 1),
+('SAleksei/it1.jpg', 1, 3),
+('SAleksei/it4.jpg', 1, 3),
+('SAleksei/it1.jpg', 1, 4),
+('SAleksei/it3.jpg', 1, 4),
+('SAleksei/it4.jpg', 1, 4),
+('SAleksei/it4.jpg', 1, 5),
+('SAleksei/it1.jpg', 1, 5),
+('SAleksei/it3.jpg', 1, 5),
+('SAleksei/it4.jpg', 1, 5);
 
 
 create table following(
@@ -96,7 +104,7 @@ create table following(
 	primary key(id),
 	foreign key (fkUser) references user(id),
 	foreign key (fkFollowingUser) references user(id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 insert into following(fkUser, fkFollowingUser) values
 (1,2),

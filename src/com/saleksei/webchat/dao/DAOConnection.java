@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DAOConnection {
 	private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	private final String DB_URL = "jdbc:mysql://localhost/webchat";
+	private final String DB_URL = "jdbc:mysql://localhost/webchat?useUnicode=true&characterEncoding=utf8";
 	private final String NAME = "root";
 	private final String PASSWORD = "admin";	
 	

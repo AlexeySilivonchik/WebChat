@@ -238,33 +238,33 @@
     								<c:when test="${fn:length(message.mediaLinks) == 2}">
     									<div class="row" style="padding-right: 15px; padding-left: 15px;">
             							 	<div class="col-md-6" style="padding: 0px;">
-            							 		<img class="img-responsive img-rounded" style="height: 200px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; padding-right:1px;" src="${pageContext.request.contextPath}${message.mediaLinks[0].link}" alt=""><br>
+            							 		<img class="img-responsive img-rounded" style="height: 200px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; padding-right:1px;" src="${pageContext.request.contextPath}/image/${message.mediaLinks[0].link}" alt=""><br>
             							 	</div>
             								<div class="col-md-6" style="padding: 0px;">
-            									<img class="img-responsive img-rounded" style="height: 200px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px;" src="${pageContext.request.contextPath}${message.mediaLinks[1].link}" alt=""><br>
+            									<img class="img-responsive img-rounded" style="height: 200px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px;" src="${pageContext.request.contextPath}/image/${message.mediaLinks[1].link}" alt=""><br>
             								</div>
             							</div>
     								</c:when>    
     								<c:when test="${fn:length(message.mediaLinks) == 3}">
       									 <div class="row" style="padding-right: 15px; padding-left: 15px;">
             							 	<div class="col-md-7" style="padding: 0px;">
-            							 		<img class="img-responsive img-rounded" style="height: 300px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; padding-right:1px;" src="${pageContext.request.contextPath}${message.mediaLinks[0].link}" alt=""><br>
+            							 		<img class="img-responsive img-rounded" style="height: 300px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; padding-right:1px;" src="${pageContext.request.contextPath}/image/${message.mediaLinks[0].link}" alt=""><br>
             							 	</div>
             								<div class="col-md-5" style="padding: 0px;">
-            									<img class="img-responsive img-rounded" style="height: 150px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-bottom-right-radius: 0px; padding-bottom:1px; width:100%;" src="${pageContext.request.contextPath}${message.mediaLinks[1].link}" alt="">
-            									<img class="img-responsive img-rounded" style="height: 150px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-top-right-radius: 0px; padding-top:1px; width:100%;" src="${pageContext.request.contextPath}${message.mediaLinks[2].link}" alt=""><br>
+            									<img class="img-responsive img-rounded" style="height: 150px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-bottom-right-radius: 0px; padding-bottom:1px; width:100%;" src="${pageContext.request.contextPath}/image/${message.mediaLinks[1].link}" alt="">
+            									<img class="img-responsive img-rounded" style="height: 150px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-top-right-radius: 0px; padding-top:1px; width:100%;" src="${pageContext.request.contextPath}/image/${message.mediaLinks[2].link}" alt=""><br>
             								</div>
             							</div>
     								</c:when>    
     								<c:when test="${fn:length(message.mediaLinks) > 3}">
       									 <div class="row" style="padding-right: 15px; padding-left: 15px;">
             							 	<div class="col-md-8" style="padding: 0px;">
-            							 		<img class="img-responsive img-rounded" style="height: 300px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; padding-right:1px;" src="${pageContext.request.contextPath}${message.mediaLinks[0].link}" alt=""><br>
+            							 		<img class="img-responsive img-rounded" style="height: 300px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; padding-right:1px;" src="${pageContext.request.contextPath}/image/${message.mediaLinks[0].link}" alt=""><br>
             							 	</div>
             								<div class="col-md-4" style="padding: 0px;">
-            									<img class="img-responsive img-rounded" style="height: 100px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-bottom-right-radius: 0px; padding-bottom:1px; width:100%;" src="${pageContext.request.contextPath}${message.mediaLinks[1].link}" alt="">
-            									<img class="img-responsive" style="height: 100px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-top-right-radius: 0px; padding-top:1px; padding-bottom:1px; width:100%;" src="${pageContext.request.contextPath}${message.mediaLinks[2].link}" alt="">
-            									<img class="img-responsive img-rounded" style="height: 100px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-top-right-radius: 0px; padding-top:1px; width:100%;" src="${pageContext.request.contextPath}${message.mediaLinks[2].link}" alt="">
+            									<img class="img-responsive img-rounded" style="height: 100px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-bottom-right-radius: 0px; padding-bottom:1px; width:100%;" src="${pageContext.request.contextPath}/image/${message.mediaLinks[1].link}" alt="">
+            									<img class="img-responsive" style="height: 100px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-top-right-radius: 0px; padding-top:1px; padding-bottom:1px; width:100%;" src="${pageContext.request.contextPath}/image/${message.mediaLinks[2].link}" alt="">
+            									<img class="img-responsive img-rounded" style="height: 100px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;padding-left:1px; border-top-right-radius: 0px; padding-top:1px; width:100%;" src="${pageContext.request.contextPath}/image/${message.mediaLinks[2].link}" alt="">
             								</div>
             							</div>
     								</c:when>    

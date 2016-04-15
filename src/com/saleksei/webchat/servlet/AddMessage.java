@@ -51,35 +51,13 @@ public class AddMessage extends HttpServlet{
 		response.setContentType("text/html");		
 		
 		try {			
-
-			System.out.println(request.getParameter("addMessageInput"));
-			System.out.println(request.getParameter("userId"));
-			System.out.println(request.getParameter("userUniqueName"));			
-			
-			
-			Properties prop = new Properties();
-			InputStream input = null;
-			input = AddMessage.class.getClassLoader().getResourceAsStream("application.properties");
-			prop.load(input);			
-
-			Part filePart = request.getPart("file");
-			String fileName = getSubmittedFileName(filePart);
-			
-			String directory = prop.getProperty("upload.location") + "/" + request.getParameter("userUniqueName");
-			File rootDir = new File(directory);
-			if(!rootDir.exists()){
-				System.out.println(rootDir.mkdirs());
-			}
-			
-			File file = new File(rootDir, fileName);
-
-			input = filePart.getInputStream();
-			Files.copy(input, file.toPath());			
-			
+			request.setCharacterEncoding("UTF-8");				
 			
 			String text = request.getParameter("addMessageInput");
 			int userId = Integer.parseInt(request.getParameter("userId"));
 			String  userUniqueName = request.getParameter("userUniqueName");
+			
+			System.out.println(text);
 			
 			User user = new User();
 			user.setId(userId);			
@@ -89,18 +67,39 @@ public class AddMessage extends HttpServlet{
 			message.setText(text);
 			
 			MessageDAOImpl messageDAO = new MessageDAOImpl();
-			message = messageDAO.addMessage(message);			
-			
-			MediaLink mediaLink = new MediaLink();
-			mediaLink.setLink(directory + "/" + fileName);
-			mediaLink.setMessage(message);
-			mediaLink.setUser(user);
-			
-			MediaLinkDAOImpl mediaLinkDAO = new MediaLinkDAOImpl();
-			mediaLinkDAO.addMediaLink(mediaLink);
+			message = messageDAO.addMessage(message);	
 			
 
-			request.setCharacterEncoding("UTF-8");
+			Part filePart = request.getPart("file");						
+					
+			if (filePart.getSize() > 0) {
+				Properties prop = new Properties();
+				InputStream input = null;
+				input = AddMessage.class.getClassLoader().getResourceAsStream("application.properties");
+				prop.load(input);		
+				
+				String directory = prop.getProperty("upload.location") + "/" + request.getParameter("userUniqueName");
+				File rootDir = new File(directory);
+				if (!rootDir.exists()) {
+					System.out.println(rootDir.mkdirs());
+				}
+
+				String fileName = getSubmittedFileName(filePart);
+				File file = new File(rootDir, fileName);
+
+				input = filePart.getInputStream();
+				Files.copy(input, file.toPath());
+				
+
+				MediaLink mediaLink = new MediaLink();
+				mediaLink.setLink(userUniqueName + "/" + fileName);
+				mediaLink.setMessage(message);
+				mediaLink.setUser(user);
+				
+				MediaLinkDAOImpl mediaLinkDAO = new MediaLinkDAOImpl();
+				mediaLinkDAO.addMediaLink(mediaLink);
+			}
+
 			response.sendRedirect(request.getContextPath() + "/reguser/" + userUniqueName);
 		} catch (IOException e) {
 			e.printStackTrace();
