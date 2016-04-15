@@ -84,6 +84,35 @@ public class MediaLinkDAOImpl extends DAOConnection implements MediaLinkDAO{
 		
 		return list;
 	}
+	
+
+	@Override
+	public void addMediaLink(MediaLink mediaLink) {
+		
+		PreparedStatement prst = null;
+		Connection connection = null;
+		
+		try {			
+			connection = establishConnection(connection);
+			prst = connection.prepareStatement("insert into medialink(link, fk_user, fk_message) values (?, ?, ?)");
+			prst.setString(1, mediaLink.getLink());
+			prst.setInt(2, mediaLink.getUser().getId());
+			prst.setInt(3, mediaLink.getMessage().getId());
+			prst.executeUpdate();					
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			if(connection != null){
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}			
+		
+	}
 
 	@Override
 	public MediaLink getMediaLink(int id) {

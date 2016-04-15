@@ -7,7 +7,7 @@ import com.saleksei.webchat.model.Message;
 public interface MessageDAO {
 	public List<Message> getAllMessagesByUserId(int userId);
 	public Message getMessage(int id);
-	public void addMessage(Message message);
+	public Message addMessage(Message message);
 	public void updateMessage(Message message);
 	public void deleteMessage(int id);
 }

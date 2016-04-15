@@ -68,7 +68,7 @@ insert into message(text, fk_user, likes, retweets) values
 
 create table medialink(
 	id int not null auto_increment,
-	link varchar(32) not null,
+	link varchar(128) not null,
 	fk_user int not null,
 	fk_message int not null,
 	primary key(id),

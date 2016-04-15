@@ -25,7 +25,7 @@ public class MainServlet extends HttpServlet{
 			
 			Action action = ActionFactory.getAction(request);
 		    String view = action.execute(request, response); 
-		    
+		     
 		    System.out.println("action: " + action);
 		    System.out.println("view: " + view);
 

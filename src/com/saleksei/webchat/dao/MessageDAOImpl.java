@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -73,13 +74,14 @@ public class MessageDAOImpl extends DAOConnection implements MessageDAO{
 	}
 	
 	@Override
-	public void addMessage(Message message) {
+	public Message addMessage(Message message) {
 		PreparedStatement prst = null;
 		Connection connection = null;
 		
 		try {			
 			connection = establishConnection(connection);
-			prst = connection.prepareStatement("insert into message(text, fk_user, likes, retweets, createDate) values (?, ?, 0, 0, ?);");
+			prst = connection.prepareStatement("insert into message(text, fk_user, likes, retweets, createDate) values (?, ?, 0, 0, ?);",
+                    Statement.RETURN_GENERATED_KEYS);
 			
 			TimeZone.setDefault(TimeZone.getTimeZone("UTC+3:00"));
 			TimeZone timezone = TimeZone.getTimeZone("UTC+3:00");
@@ -90,7 +92,20 @@ public class MessageDAOImpl extends DAOConnection implements MessageDAO{
 			prst.setString(1, message.getText());
 			prst.setInt(2, message.getUser().getId());
 			prst.setTimestamp(3, currentTimestamp);
-			prst.executeUpdate();					
+			int affectedRows = prst.executeUpdate();						
+
+	        if (affectedRows == 0) {
+	            throw new SQLException("Creating user failed, no rows affected.");
+	        }
+
+	        try (ResultSet generatedKeys = prst.getGeneratedKeys()) {
+	            if (generatedKeys.next()) {
+	            	message.setId(generatedKeys.getInt(1));
+	            }
+	            else {
+	                throw new SQLException("Creating user failed, no ID obtained.");
+	            }
+	        }
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -102,7 +117,9 @@ public class MessageDAOImpl extends DAOConnection implements MessageDAO{
 					e.printStackTrace();
 				}
 			}
-		}		
+		}	
+		
+		return message;
 		
 	}
 

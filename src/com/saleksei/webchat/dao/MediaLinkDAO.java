@@ -8,6 +8,7 @@ public interface MediaLinkDAO {
 	public List<MediaLink> getAllMediaLinksByMessageId(int messageId);
 	public List<MediaLink> getPreviewMediaLinksByUserId(int userId);
 	public MediaLink getMediaLink(int id);
+	public void addMediaLink(MediaLink mediaLink);
 	public void updateMediaLink(MediaLink mediaLink);
 	public void deleteMediaLink(MediaLink mediaLink);
 }

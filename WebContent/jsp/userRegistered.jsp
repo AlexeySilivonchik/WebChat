@@ -18,10 +18,11 @@
 
     <title>${user.name}(@${user.uniqueName}) | WebChat</title>
 
-    <link href="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">     
-    <script src="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/js/jquery-1.12.2.min.js"></script>
-    <script src="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <link href="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">        
     <link href="${pageContext.request.contextPath}/css/webchat.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/js/jquery-1.12.2.min.js"></script>
+    <script src="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath}/js/webchat.js"></script>
     
     <!-- background: "linear-gradient(white 90%, #3366BB 10%)" 
     
@@ -38,78 +39,9 @@
 			-->
     <script type="text/javascript">
 		$(document).ready(function(){
-			var letterMaxValue = 140;
 			
-			$('.navTab').hover(function(){						
-				if (!$(this).siblings(".anime").hasClass('animated')) {
-					$(this).siblings(".anime").dequeue().stop().animate({ height: "5px" }, 150, 'linear');
-				}
-				
-				$(this).css('color', '#3366BB');
-			}, function(){				
-				
-				$(this).siblings(".anime").animate({ height: "0px" }, 150, 'linear');
-				$(this).css('color', '#777');
-			});
-			
-			
-    		$('#addMessageInput').focus(function(){     			  			
-    			$(this).css('padding-bottom','0px');
-    			$('#addMessageIcon').remove();
-    			$('#addMessageIconsDiv').attr({
-    				hidden: false	
-    			});
-    		});
-    		
-    		$('#addMessageInput').blur(function(){
-    			$(this).css('padding-bottom','6px');
-    			if($(this).val().length == 0){
-    				$(this).css('height','40px');
-    				$('#addMessageDiv').append('<i id="addMessageIcon" class="addMessageIcon glyphicon glyphicon-camera" style="position: absolute; padding: 10px 8px 6px 8px; right: 0px; cursor: pointer; font-size: 13pt; color:#3366BB;"></i>');
-    				$('#addMessageIconsDiv').attr({
-        				hidden: true	
-        			});
-    			}    	    			
-    		});
-    		
-    		$('.addMessageInput').on("input", function () {
-    			
-    			$(this).height('auto');
-				$(this).height(this.scrollHeight);
-    			
-    			$('.letterCounter').empty();
-    			$('.letterCounter').html(letterMaxValue - ($(this).val().length));
-    			
-    			if(($(this).val().length != 0) && ($('#messageButton').attr('disabled') == 'disabled')){
-    				console.log("remove");
-    				$('.messageButton').removeAttr('disabled');
-    			}
-    			
-				if(($(this).val().length == 0) && ($(this).attr('disabled') != 'disabled')){
-					$('.messageButton').prop("disabled", true);
-					console.log("prop");
-    			}
-    		});   		
 		});
-		
-		function previewImage(input) {
-			if (input.files && input.files[0]) {
-			    var reader = new FileReader();
-			    reader.onload = function (e) {
-			      $('#preview')
-			        .attr('src', e.target.result)
-			        .width(150)
-			        .height(150);			        
-			      
-			      $('#previewDiv')
-			      	.attr({
-	    				hidden: false	
-	    			});			      
-			      
-			    };
-			   	reader.readAsDataURL(input.files[0]);
-			}
-		};
+
 	</script>	
 </head>
 
@@ -141,7 +73,7 @@
     			<form id="logoutForm" action="${pageContext.request.contextPath}/logout" method="post">
     			<ul class="nav navbar-nav navbar-right" role="navigation">       				 
         			<li class="dropdown">
-          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px;margin-top:8px;margin-bottom:10px;"><img alt="Brand" src="${pageContext.request.contextPath}${user.logoURL}" class="img-rounded" style="width: 35px;height:35px;"></a>
+          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px;margin-top:8px;margin-bottom:10px;"><img alt="Brand" src="${pageContext.request.contextPath}${user.logoURL}" class="img-rounded" style="width: 35px;height:35px;margin-right:15px;"></a>
           				
           				
           				<ul class="dropdown-menu" >
@@ -173,7 +105,7 @@
         			<h4 class="modal-title" style="text-align:center;">Compose new message</h4>
       			</div>
       			<div class="modal-body" style="padding-bottom:60px;background-color:#e9f5fd;">
-        			<form id="messageForm2" action="${pageContext.request.contextPath}/user/addMessage" method="post">
+        			<form id="messageForm2" action="${pageContext.request.contextPath}/user/addMessage" method="post" enctype="multipart/form-data">
             			<input value="${user.id}" name="userId" hidden="true"/>
             			<input value="${user.uniqueName}" name="userUniqueName" hidden="true"/>
             			
@@ -185,12 +117,17 @@
 						
 						
 							<div id="previewDiv" style="siplay:block;padding:15px 0px 15px 0px;" hidden="true">
-								<img id="preview" src="#" alt="your image"/>
+								<img id="preview" src="#" alt="your image" style="border-bottom-right-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-top-left-radius: 5px;"/>
 							</div>
+							
+							<!-- <div id="previewDiv2" style="siplay:block;padding:15px 0px 15px 0px;" hidden="true">
+								<img id="preview2" src="#" alt="your image" style="border-bottom-right-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-top-left-radius: 5px;"/>
+							</div> -->
+						
 						
 							<div class="col-md-1" style="text-align: center; overflow: hidden; border: none;display:block;">							
 								<span class = "glyphicon glyphicon-camera" aria-hidden = "true" style="display: block; padding-right: 20px;font-size: 15pt;color: #3366BB;"></span>
-								<input type="file" onchange="previewImage(this);" name="file" id="file" size="1" style="margin-top: -50px; margin-left:-410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 60px; cursor: pointer;">
+								<input type="file" onchange="previewImage(this);" name="file" multiple id="file" size="1" style="margin-top: -50px; margin-left:-410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 60px; cursor: pointer;">
 							</div>
 							
 							
@@ -295,7 +232,7 @@
             					<c:choose>
     								<c:when test="${fn:length(message.mediaLinks) == 1}">
       									 <c:forEach items="${message.mediaLinks}" var="media">
-            								<img class="img-responsive img-rounded" src="${pageContext.request.contextPath}${media.link}" alt=""><br>
+            								<img class="img-responsive img-rounded" src="${pageContext.request.contextPath}/image/${media.link}" alt=""><br>
             							</c:forEach>
     								</c:when>    
     								<c:when test="${fn:length(message.mediaLinks) == 2}">
