@@ -115,6 +115,14 @@ insert into following(fkUser, fkFollowingUser) values
 (1,7);
 
 
+create table reply(
+	id int not null auto_increment,
+	text varchar(144) not null,
+	fkMessage int not null,
+	primary key(id),
+	foreign key (fkMessage) references message(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 

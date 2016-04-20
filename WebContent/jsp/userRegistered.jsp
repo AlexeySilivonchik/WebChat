@@ -77,7 +77,7 @@
           				
           				
           				<ul class="dropdown-menu" >
-            				<li><a href="#">${user.name}<br><span style="color:gray; font-size:10pt;">View profile</span></a></li>
+            				<li><a href="${pageContext.request.contextPath}/">${user.name}<br><span style="color:gray; font-size:10pt;">View profile</span></a></li>
             				<li role="separator" class="divider"></li>
             				<li><a href="#"><span style="color:gray; font-size:10pt;">Settings</span></a></li>
             				<li><a href="javascript:$('#logoutForm').submit()"><span style="color:gray; font-size:10pt;">Logout</span></a></li>
