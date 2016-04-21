@@ -7,6 +7,7 @@ public class User {
 	private String name;
 	private String uniqueName;
 	private String role;
+	private String email;
 	private String password;
 	private String description;
 	private String address;
@@ -51,6 +52,14 @@ public class User {
 	
 	public String getRole(){
 		return role;
+	}
+	
+	public void setEmail(String email){
+		this.email = email;
+	}
+	
+	public String getEmail(){
+		return email;
 	}
 	
 	public void setPassword(String password){

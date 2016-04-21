@@ -10,6 +10,7 @@ public interface UserDAO{
 	public List<User> getPreviewFollowingUsers(int userId);
 	public User getUser(int id);
 	public User getUserByUniqueName(String name);
+	public void addUser(User user);
 	public void updateUser(User user);
 	public void deleteUser(User user);
 }

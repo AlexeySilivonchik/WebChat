@@ -114,6 +114,7 @@ public class UserDAOImpl extends DAOConnection implements UserDAO{
 				user.setName(rs.getString("name"));		
 				user.setUniqueName(rs.getString("uniqueName"));
 				user.setRole(rs.getString("role"));
+				user.setEmail(rs.getString("email"));
 				user.setPassword(rs.getString("password"));
 				
 				user.setDescription(rs.getString("description"));
@@ -143,6 +144,36 @@ public class UserDAOImpl extends DAOConnection implements UserDAO{
 		}		
 		
 		return user;
+	}
+	
+
+	@Override
+	public void addUser(User user) {
+		PreparedStatement prst = null;		
+		Connection connection = null;
+		
+		try {
+			connection = establishConnection(connection);
+			prst = connection.prepareStatement("insert into user(uniqueName, role, password, email) "
+					+ "values (?, ?, ?, ?)");
+			prst.setString(1, user.getUniqueName());
+			prst.setString(2, user.getRole());
+			prst.setString(3, user.getPassword());
+			prst.setString(4, user.getEmail());
+			
+			prst.executeUpdate();
+							
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			if(connection != null){
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}	
 	}
 
 	@Override
@@ -177,6 +208,7 @@ public class UserDAOImpl extends DAOConnection implements UserDAO{
 				user.setName(rs.getString("name"));		
 				user.setUniqueName(rs.getString("uniqueName"));
 				user.setRole(rs.getString("role"));
+				user.setEmail(rs.getString("email"));
 				user.setPassword(rs.getString("password"));
 				
 				user.setDescription(rs.getString("description"));

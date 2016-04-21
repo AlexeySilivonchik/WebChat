@@ -95,17 +95,17 @@
 						</div>
 						
 						<div class="well" style="background-color: white;">
-            				<form>
+            				<form action="${pageContext.request.contextPath}/register" method="POST">
             					<p style="font-size: 11pt;"><fmt:message key="home.input.signin.label1" var="buttonValue" /> <span style="color: gray;"><fmt:message key="home.input.signin.label2"/></span></p>
             					<hr style="padding: 0px;">
   								<div class="form-group">
-    								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="<fmt:message key="home.input.signin.name"/>">
+    								<input class="form-control" name="registerInputName" placeholder="<fmt:message key="home.input.signin.name"/>">
   								</div>
   								<div class="form-group">
-    								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="<fmt:message key="home.input.signin.email"/>">
+    								<input type="email" class="form-control" name="registerInputEmail" placeholder="<fmt:message key="home.input.signin.email"/>">
   								</div>
   								<div class="form-group">
-    								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="<fmt:message key="home.input.signin.password"/>">
+    								<input type="password" class="form-control" name="registerInputPassword" placeholder="<fmt:message key="home.input.signin.password"/>">
   								</div>  
   								<div style="padding-bottom: 30px;">							
   								<button type="submit" class="btn btn-default pull-right"><fmt:message key="home.input.signin.button"/></button>	</div>
