@@ -26,6 +26,14 @@ public class RegisterServlet extends HttpServlet{
 		
 		System.out.println(name + ", " + email + ", " + password);
 		
+		if(name == null || email == null || password == null){
+			try {
+				response.sendRedirect(request.getContextPath() + "/");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		UserDAOImpl userDAO = new UserDAOImpl();
 		User user = userDAO.getUserByUniqueName(name);
 		

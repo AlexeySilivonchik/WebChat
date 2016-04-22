@@ -23,26 +23,6 @@
     <script src="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/js/jquery-1.12.2.min.js"></script>
     <script src="${pageContext.request.contextPath}/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
     <script src="${pageContext.request.contextPath}/js/webchat.js"></script>
-    
-    <!-- background: "linear-gradient(white 90%, #3366BB 10%)" 
-    
-    
-			$('.navTab').mouseleave(function(){
-				$("#anime").animate({ height: "0px" });
-				$(this).css('color', '#777');
-			});
-			
-			
-			$("#anime").filter(':not(:animated)').animate({ height: "10px" });
-			
-			$("#anime").animate({ height: "0px" });
-			-->
-    <script type="text/javascript">
-		$(document).ready(function(){
-			
-		});
-
-	</script>	
 </head>
 
 <body style="background-color: #f6f6f6;">

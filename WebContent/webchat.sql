@@ -31,7 +31,7 @@ create table user(
 	primary key(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into user(name, uniqueName, role, email, password, description, address, site, logoURL, headerURL, mediaFilesAmount, followingAmount, followersAmount, likesAmount, messagesAmount) values
+insert into user(name, uniqueName, role, password, email, description, address, site, logoURL, headerURL, mediaFilesAmount, followingAmount, followersAmount, likesAmount, messagesAmount) values
 ('Aleksei Silivonchik', 'SAleksei', 'USER', '$2a$10$pmq6yXcuUrH2kN4Eltzvw.VTJGWvx5a69LUGE9CJpL26KRJ.SuDMe', 'aa@gmail.by',
 	'Java Software Developer. Main technologies are Java, Spring, Javascript, CSS, Bootstrap, Mysql, JEE.', 'Kuprevicha 1/1', 'http://saleksei.blog.com', 
 	'/images/image.jpg', '/images/wide.jpg', 3, 1, 0, 4, 4),

@@ -21,12 +21,20 @@ public class LoginServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response){
 		String name = request.getParameter("user");
-		String pwd = request.getParameter("pwd");		
+		String password = request.getParameter("pwd");		
+		
+		if(name == null || password == null){
+			try {
+				response.sendRedirect(request.getContextPath() + "/");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		UserDAOImpl userDAO = new UserDAOImpl();
 		User user = userDAO.getUserByUniqueName(name);
 		
-		if(user != null ? BCrypt.checkpw(pwd, user.getPassword()) : false){			
+		if(user != null ? BCrypt.checkpw(password, user.getPassword()) : false){			
 			HttpSession session = request.getSession();
 			session.setAttribute("user", name);
 			session.setAttribute("userType", UserType.USER);
@@ -40,7 +48,7 @@ public class LoginServlet extends HttpServlet{
 			
 		} else {
 			try {
-				response.sendRedirect(request.getContextPath() + "/error.html");
+				response.sendRedirect(request.getContextPath() + "/");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

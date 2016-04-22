@@ -57,7 +57,6 @@ $(document).ready(function() {
 
 function previewImage(input) {
 	if (input.files && input.files[0]) {
-		//alert("input.files: " + input.files + "\n input.files[0]: " + input.files[0] + "\n input.files[1]: " + input.files[1]);
 	    var reader = new FileReader();
 	    reader.onload = function (e) {
 	      $('#preview')
@@ -74,3 +73,7 @@ function previewImage(input) {
 	   	reader.readAsDataURL(input.files[0]);
 	}
 };
+
+
+
+
