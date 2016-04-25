@@ -95,7 +95,7 @@
 						</div>
 						
 						<div class="well" style="background-color: white;">
-            				<form action="${pageContext.request.contextPath}/register" method="POST">
+            				<form action="${pageContext.request.contextPath}/signup" method="POST">
             					<p style="font-size: 11pt;"><fmt:message key="home.input.signin.label1" var="buttonValue" /> <span style="color: gray;"><fmt:message key="home.input.signin.label2"/></span></p>
             					<hr style="padding: 0px;">
   								<div class="form-group">
