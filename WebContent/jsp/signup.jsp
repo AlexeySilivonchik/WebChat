@@ -89,26 +89,50 @@
     <div class="container">    	   
         <div class="row">
             <div class="col-md-12">        	           
-            	<div class="row">          		
-            		<div class="col-md-4 col-md-offset-4" style="padding-top:40px;">						
-						<h3>Join WebChat today.</h3>
-            			<form action="${pageContext.request.contextPath}/register" method="POST">
+            	<div class="row">          
+            		<form action="${pageContext.request.contextPath}/register" method="POST">		            		
+            			<div class="col-md-4 col-md-offset-4" style="padding-top:40px;">						
+							<h3>Join WebChat today.</h3>
+            			
   							<div class="form-group" style="margin-top:30px;">
-    							<input class="form-control" id="registerInputName" name="registerInputName" placeholder="<fmt:message key="home.input.signin.name"/>">
+    							<input class="form-control" id="registerName" name="registerName" placeholder="<fmt:message key="home.input.signin.name"/>">
   							</div>
+  						</div>
+  					
+  						<div class="col-md-1" style="padding-top:125px;padding-left:0px;">
+            				<div id="registerNameOk" hidden="true"><span class = "col-md-1 glyphicon glyphicon-ok" aria-hidden = "true" style="display: block; padding-right: 30px; color:blue;" ></span></div>
+            				<div id="registerNameRemove" hidden="true"><span class = "col-md-1 glyphicon glyphicon-remove" aria-hidden = "true" style="display: block; padding-right: 30px; color:red;"></span></div>
+            			</div>
+            		
+            			<div class="col-md-4 col-md-offset-4">	
   							<div class="form-group" style="margin-top:30px;">
-    							<input type="email" class="form-control" id="registerInputEmail" name="registerInputEmail" placeholder="<fmt:message key="home.input.signin.email"/>">
-  							</div>
+    							<input type="email" class="form-control" id="registerEmail" name="registerEmail" placeholder="<fmt:message key="home.input.signin.email"/>">
+  							</div>  							
+  						</div>
+  					
+  						<div class="col-md-1" style="padding-left:0px;margin-top:35px;">
+            				<div id="registerEmailOk" hidden="true"><span class = "col-md-1 glyphicon glyphicon-ok" aria-hidden = "true" style="display: block; padding-right: 30px; color:blue;" ></span></div>
+            				<div id="registerEmailRemove" hidden="true"><span class = "col-md-1 glyphicon glyphicon-remove" aria-hidden = "true" style="display: block; padding-right: 30px; color:red;"></span></div>
+            			</div>
+            		
+            			<div class="col-md-4 col-md-offset-4">
   							<div class="form-group" style="margin-top:30px;">
-    							<input type="password" class="form-control" id="registerInputPassword" name="registerInputPassword" placeholder="<fmt:message key="home.input.signin.password"/>">
-  							</div>  		
+    							<input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="<fmt:message key="home.input.signin.password"/>">
+  							</div>    							
+  						</div>
+  					
+  						<div class="col-md-1" style="padding-left:0px;margin-top:35px;">
+            				<div id="registerPasswordOk" hidden="true"><span class = "col-md-1 glyphicon glyphicon-ok" aria-hidden = "true" style="display: block; padding-right: 30px; color:blue;" ></span></div>
+            				<div id="registerPasswordRemove" hidden="true"><span class = "col-md-1 glyphicon glyphicon-remove" aria-hidden = "true" style="display: block; padding-right: 30px; color:red;"></span></div>
+            			</div>
+            		
+            			<div class="col-md-4 col-md-offset-4">
   							<div class="form-group" style="margin-top:30px;">			
   							  	<button type="submit" class="btn btn-primary" style="width: 100%;"><fmt:message key="home.input.signin.button"/></button>
-  							</div>
-						</form>
-            		</div>
+  							</div>						
+						</div>            		
+            		</form>          		      		
             	</div>            	
-
             </div>
         </div>
     </div>

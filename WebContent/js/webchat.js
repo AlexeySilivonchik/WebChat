@@ -50,9 +50,78 @@ $(document).ready(function() {
 			$('.messageButton').prop("disabled", true);
 			console.log("prop");
 		}
-	});   		
+	});   	
+	
+	
+	registerFormValidation();	
 });
 
+
+function registerFormValidation(){
+	
+	var passwordRegexp = new RegExp("^\\w+@{1}\\w+[.]{1}\\w{2,4}$","m");
+	
+	$('#registerName').focus(function(){
+		if($(this).val().length != 0){
+			$('#registerNameOk').attr({
+				hidden: true
+			});
+		}
+	});
+	
+	$('#registerName').blur(function(){
+		if($(this).val().length != 0){
+			$('#registerNameOk').attr({
+				hidden: false
+			});
+		}
+	});
+	
+	$('#registerEmail').focus(function(){
+		if($(this).val().length != 0){
+			$('#registerEmailOk').attr({
+				hidden: true
+			});
+			
+			$('#registerEmailRemove').attr({
+				hidden: true
+			});
+		}
+	});
+	
+	$('#registerEmail').blur(function(){
+		if($(this).val().length != 0){			
+			if(passwordRegexp.test($(this).val())){
+				$('#registerEmailOk').attr({
+					hidden: false
+				});
+			} else {
+				$('#registerEmailRemove').attr({
+					hidden: false
+				});
+				
+				$('#registerEmail').css('border-color', 'blue');
+			}
+			
+		}
+	});
+	
+	$('#registerPassword').focus(function(){
+		if($(this).val().length != 0){
+			$('#registerPasswordOk').attr({
+				hidden: true
+			});
+		}
+	});
+	
+	$('#registerPassword').blur(function(){
+		if($(this).val().length != 0){
+			$('#registerPasswordOk').attr({
+				hidden: false
+			});
+		}
+	});
+};
 
 
 function previewImage(input) {

@@ -27,13 +27,13 @@
 }
 
 .navTabAnimation{
-	height:60px;
+	height:50px;
 }
 
 .navTabAnimation > a{
 	padding-right:0px !important;
 	padding-left:0px !important;
-	padding-bottom:7px !important;
+	padding-bottom:0px !important;
 	margin-right:15px;
 	margin-left:15px;
 }
@@ -44,4 +44,9 @@
 	height:0px;
 }
 
+.open > a{
+    background-color: transparent !important;
+  }
+
 ::-webkit-file-upload-button { cursor:pointer; }
+
