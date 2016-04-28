@@ -47,6 +47,16 @@
 .open > a{
     background-color: transparent !important;
   }
+  
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
 
 ::-webkit-file-upload-button { cursor:pointer; }
+
 

@@ -54,6 +54,8 @@ $(document).ready(function() {
 	
 	
 	registerFormValidation();	
+	
+	editProfileEvent();
 });
 
 
@@ -86,6 +88,8 @@ function registerFormValidation(){
 			$('#registerEmailRemove').attr({
 				hidden: true
 			});
+			
+			$('#registerEmail').css('border-color', '#66afe9');
 		}
 	});
 	
@@ -95,14 +99,18 @@ function registerFormValidation(){
 				$('#registerEmailOk').attr({
 					hidden: false
 				});
+				
+				$('#registerEmail').css('border-color', '#ccc');
 			} else {
 				$('#registerEmailRemove').attr({
 					hidden: false
 				});
 				
-				$('#registerEmail').css('border-color', 'blue');
+				$('#registerEmail').css('border-color', 'red');
 			}
 			
+		} else {
+			$('#registerEmail').css('border-color', '#ccc');			
 		}
 	});
 	
@@ -144,5 +152,40 @@ function previewImage(input) {
 };
 
 
+function editProfileEvent(){
+	$('#editProfileSave').on('click', function(){
+		$('#userEditForm').submit();
+	})
+}
+
+
+function editProfile(){
+	$('.navbar').css('pointer-events','none');
+	$('.navbar').css('opacity','0.2');
+	$('.notEditable').css('pointer-events','none');
+	$('.notEditable').css('opacity','0.2');	
+	
+	$('#editProfile').css('display','none');	
+	$('#editProfileCancel').css('display','block');	
+	$('#editProfileSave').css('display','block');
+	
+	$('#userInfo').css('display', 'none');
+	$('#userEditInfo').css('display', 'block');
+}
+
+
+function editProfileCancel(){
+	$('.navbar').css('pointer-events','auto');
+	$('.navbar').css('opacity','1');
+	$('.notEditable').css('pointer-events','auto');
+	$('.notEditable').css('opacity','1');
+	
+	$('#editProfile').css('display','block');	
+	$('#editProfileCancel').css('display','none');	
+	$('#editProfileSave').css('display','none');
+	
+	$('#userInfo').css('display', 'block');
+	$('#userEditInfo').css('display', 'none');
+}
 
 

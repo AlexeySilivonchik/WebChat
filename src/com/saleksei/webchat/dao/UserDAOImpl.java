@@ -178,7 +178,31 @@ public class UserDAOImpl extends DAOConnection implements UserDAO{
 
 	@Override
 	public void updateUser(User user) {
-		// TODO Auto-generated method stub
+		PreparedStatement prst = null;		
+		Connection connection = null;
+		
+		try {
+			connection = establishConnection(connection);
+			prst = connection.prepareStatement("update user set name = ?, description = ?, address = ?, site = ? where id = ?");
+			prst.setString(1, user.getName());
+			prst.setString(2, user.getDescription());
+			prst.setString(3, user.getAddress());
+			prst.setString(4, user.getSite());
+			prst.setInt(5, user.getId());
+			
+			prst.executeUpdate();
+							
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			if(connection != null){
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}	
 		
 	}
 

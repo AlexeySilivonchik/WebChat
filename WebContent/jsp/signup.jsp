@@ -26,7 +26,7 @@
 </head>
 
 <body>	
-  	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin: 0px; border: none; background: linear-gradient(to right, #0B81F4, #45F790);border-bottom:1px double gray;">
+  	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin: 0px; border: none; background: linear-gradient(to right, #469ef7, #31f785);border-bottom:1px double gray;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -36,10 +36,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!-- <a class="navbar-brand" href="${pageContext.request.contextPath}/">WebChat</a>  -->
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="position:absolute; left:50%;">
                     <li class="navTabAnimation">
                         <a href="${pageContext.request.contextPath}/" class="navTab"><fmt:message key="nav.home"/></a>
                         <span class="anime"></span>
@@ -52,6 +51,7 @@
           				<ul class="dropdown-menu" style="padding: 20px;">
             				<li style="width:250px;">
             					<form action="${pageContext.request.contextPath}/login" method="post">
+            						<p>Have an account?</p>
   									<div class="form-group">
     									<input type="text" name="user" class="form-control" id="loginInputName" placeholder="<fmt:message key="home.input.login.username"/>">
   									</div>
@@ -59,13 +59,31 @@
     									<input type="password" name="pwd" class="form-control" id="loginInputPassword" placeholder="<fmt:message key="home.input.login.password"/>">    								
   									</div>    								
   									<div class="from-group">
-  										<button type="submit" class="btn btn-default pull-right"><fmt:message key="home.input.login.button"/></button>	
+  										<button type="submit" class="btn btn-primary pull-left" style="margin-bottom: 10px;"><fmt:message key="home.input.login.button"/></button>	
   									</div><br> 						
   									<div class="checkbox">
     									<label>
       										<input type="checkbox"> <fmt:message key="home.input.login.checkbox"/> · <a href="#">Forgot password?</a>
     									</label>
   									</div>
+								</form>
+								
+								<hr style="margin-top: 0px; margin-bottom:10px;">
+								
+								<form action="${pageContext.request.contextPath}/signup" method="post">
+									<p>New to WebChat?</p>
+									<div class="form-group" hidden="true">
+    									<input class="form-control" id="registerInputName" name="registerInputName" placeholder="<fmt:message key="home.input.signin.name"/>">
+  									</div>
+  									<div class="form-group" hidden="true">
+    									<input type="email" class="form-control" id="registerInputEmail" name="registerInputEmail" placeholder="<fmt:message key="home.input.signin.email"/>">
+  									</div>
+  									<div class="form-group" hidden="true">
+    									<input type="password" class="form-control" id="registerInputPassword" name="registerInputPassword" placeholder="<fmt:message key="home.input.signin.password"/>">
+  									</div>  
+									<div class="from-group">
+  										<button type="submit" class="btn" style="background-color:lightgray; width:100%;">Sign up</button>	
+  									</div><br> 	
 								</form>
             				</li>
           				</ul>
@@ -90,45 +108,45 @@
         <div class="row">
             <div class="col-md-12">        	           
             	<div class="row">          
-            		<form action="${pageContext.request.contextPath}/register" method="POST">		            		
+            		<form action="${pageContext.request.contextPath}/signup" method="POST">		            		
             			<div class="col-md-4 col-md-offset-4" style="padding-top:40px;">						
 							<h3>Join WebChat today.</h3>
             			
   							<div class="form-group" style="margin-top:30px;">
-    							<input class="form-control" id="registerName" name="registerName" placeholder="<fmt:message key="home.input.signin.name"/>">
+    							<input class="form-control" style="height:40px;" id="registerName" name="registerInputName" placeholder="<fmt:message key="home.input.signin.name"/>">
   							</div>
   						</div>
   					
   						<div class="col-md-1" style="padding-top:125px;padding-left:0px;">
-            				<div id="registerNameOk" hidden="true"><span class = "col-md-1 glyphicon glyphicon-ok" aria-hidden = "true" style="display: block; padding-right: 30px; color:blue;" ></span></div>
+            				<div id="registerNameOk" hidden="true"><span class = "col-md-1 glyphicon glyphicon-ok" aria-hidden = "true" style="display: block; padding-right: 30px; color:#66afe9;" ></span></div>
             				<div id="registerNameRemove" hidden="true"><span class = "col-md-1 glyphicon glyphicon-remove" aria-hidden = "true" style="display: block; padding-right: 30px; color:red;"></span></div>
             			</div>
             		
             			<div class="col-md-4 col-md-offset-4">	
   							<div class="form-group" style="margin-top:30px;">
-    							<input type="email" class="form-control" id="registerEmail" name="registerEmail" placeholder="<fmt:message key="home.input.signin.email"/>">
+    							<input type="email" class="form-control" style="height:40px;" id="registerEmail" name="registerInputEmail" placeholder="<fmt:message key="home.input.signin.email"/>">
   							</div>  							
   						</div>
   					
   						<div class="col-md-1" style="padding-left:0px;margin-top:35px;">
-            				<div id="registerEmailOk" hidden="true"><span class = "col-md-1 glyphicon glyphicon-ok" aria-hidden = "true" style="display: block; padding-right: 30px; color:blue;" ></span></div>
+            				<div id="registerEmailOk" hidden="true"><span class = "col-md-1 glyphicon glyphicon-ok" aria-hidden = "true" style="display: block; padding-right: 30px; color:#66afe9;" ></span></div>
             				<div id="registerEmailRemove" hidden="true"><span class = "col-md-1 glyphicon glyphicon-remove" aria-hidden = "true" style="display: block; padding-right: 30px; color:red;"></span></div>
             			</div>
             		
             			<div class="col-md-4 col-md-offset-4">
   							<div class="form-group" style="margin-top:30px;">
-    							<input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="<fmt:message key="home.input.signin.password"/>">
+    							<input type="password" class="form-control" style="height:40px;" id="registerPassword" name="registerInputPassword" placeholder="<fmt:message key="home.input.signin.password"/>">
   							</div>    							
   						</div>
   					
   						<div class="col-md-1" style="padding-left:0px;margin-top:35px;">
-            				<div id="registerPasswordOk" hidden="true"><span class = "col-md-1 glyphicon glyphicon-ok" aria-hidden = "true" style="display: block; padding-right: 30px; color:blue;" ></span></div>
+            				<div id="registerPasswordOk" hidden="true"><span class = "col-md-1 glyphicon glyphicon-ok" aria-hidden = "true" style="display: block; padding-right: 30px; color:#66afe9;" ></span></div>
             				<div id="registerPasswordRemove" hidden="true"><span class = "col-md-1 glyphicon glyphicon-remove" aria-hidden = "true" style="display: block; padding-right: 30px; color:red;"></span></div>
             			</div>
             		
             			<div class="col-md-4 col-md-offset-4">
   							<div class="form-group" style="margin-top:30px;">			
-  							  	<button type="submit" class="btn btn-primary" style="width: 100%;"><fmt:message key="home.input.signin.button"/></button>
+  							  	<button type="submit" class="btn btn-primary" style="width: 100%;height:40px;"><fmt:message key="home.input.signin.button"/></button>
   							</div>						
 						</div>            		
             		</form>          		      		

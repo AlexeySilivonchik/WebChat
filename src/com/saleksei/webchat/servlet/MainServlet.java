@@ -23,7 +23,7 @@ public class MainServlet extends HttpServlet{
 		
 		try {
 			
-			Action action = ActionFactory.getAction(request);
+			Action action = ActionFactory.getAction(request); 
 		    String view = action.execute(request, response); 
 		     
 		    System.out.println("action: " + action);  
