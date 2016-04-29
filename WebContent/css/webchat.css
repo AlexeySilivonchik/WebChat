@@ -18,13 +18,74 @@
 	color: #3366BB;
 }
 
-.navbar-brand
+.modal-icons
 {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    margin:0 auto;
+	padding-right: 15px;
+}
+
+.modal-icons > button
+{
+	color:#3366BB;
+}
+
+.modal-icons > p
+{
+	color:#3366BB; 
+	font-size: 15pt;
+}
+
+.modal-icons > span
+{
+	display: block;
+}
+
+.modal-icons > p > a > span
+{
+	display: block; 
+	padding-right: 30px;
+}
+
+.modal-icons-preview
+{
+	padding:15px 0px 15px 0px;
+}
+
+.nav-animation li {
+	height: 60px;
+}
+
+.nav-animation li>a {
+	margin-right: 15px;
+	margin-left: 15px;
+	padding-bottom: 7px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.nav-animation li>a>span {
+	font-size: 14pt;
+	height: 80px;
+}
+
+.nav-animation li>span {
+	background-color: blue;
+	height: 0px;
+	width: 100%;
+}
+
+.navbar-brand {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.navbar-user {
+	background-color: white;
+	border: none;
+	border-bottom: 1px double #656464;
+	margin: 0px;
 }
 
 .navTab :hover{
@@ -49,11 +110,11 @@
 	height:0px;
 }
 
-.open > a{
-    background-color: transparent !important;
-  }  
-  
-.retweet a:hover{
+.open>a {
+	background-color: transparent !important;
+}
+
+.retweet a:hover {
 	color: green;
 }
 
@@ -62,18 +123,78 @@
 	background-color: #3366BB;
 }
 
-.userEditColorPalette
+.user-dropdown>a {
+	margin-bottom: 10px;
+	margin-top: 8px;
+	padding: 0px !important;
+}
+
+.user-dropdown a>span {
+	color: gray;
+	font-size: 10pt;
+}
+
+.user-dropdown img {
+	height: 35px;
+	margin-right: 15px;
+	width: 35px;
+}
+
+.user-modal-body
 {
-	 width:30px;
-	 height:30px;
-	 margin:1px;
-	 border-radius:5px;
-	 display: inline-block;
+	background-color:#e9f5fd;
+	padding-bottom:60px;
+}
+
+.user-modal-textarea
+{
+	position: relative;
+}
+
+.user-modal-textarea > textarea
+{
+	height: 40px;
+	overflow: hidden;
+	padding-right: 30px;  
+	padding-top: 10px; 
+	resize:none; 
+}
+
+.user-palette {
+	width: 30px;
+	height: 30px;
+	margin: 1px;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+.user-search {
+	position: relative;
+}
+
+.user-search>i {
+	cursor: pointer;
+	font-size: 13pt;
+	padding: 8px;
+	position: absolute;
+	right: 0px;
+}
+
+.user-search>input {
+	border-radius: 20px;
 }
 
 .userTextColorScheme
 {
 	color: #3366BB;
+}
+
+.write-message {
+	color: white;
+}
+
+.write-message>span {
+	padding-left: 5px;
 }
 
 ::-webkit-file-upload-button { cursor:pointer; }

@@ -26,112 +26,118 @@
 </head>
 
 <body style="background-color: #f6f6f6;">
-       
-            <c:if test="${sessionScope.userType == 'USER'}">
-            	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin: 0px; border: none;background-color: white;border-bottom:1px double #656464;">
-        		<div class="container">
-            
+
+	<!-- Navigation bar for user with role 'USER'-->
+    <c:if test="${sessionScope.userType == 'USER'}">
+    	<nav class="navbar navbar-default navbar-static-top navbar-user" role="navigation">
+        	<div class="container">            
             	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li style="height:60px;">
-                        <a href="${pageContext.request.contextPath}/" class="navTab" style="padding-right:0px;padding-left:0px;padding-bottom:7px;margin-right:15px;margin-left:15px;"><span style="font-size: 14pt;height:80px;"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <fmt:message key="nav.home"/></span></a>
-                        <span class="anime" style="background-color:blue;width:100%;height:0px;"></span>
-                    </li>
-                    <li style="height:60px;">
-                        <a href="#" class="navTab" style="padding-right:0px;padding-left:0px;padding-bottom:7px;margin-right:15px;margin-left:15px;"><span style="font-size: 14pt;"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span> Notifications</span></a>
-                    	<span class="anime" style="background-color:blue;width:100%;height:0px;"></span>
-                    </li>
-                    <li style="height:60px;">
-                        <a href="#" class="navTab" style="padding-right:0px;padding-left:0px;padding-bottom:7px;margin-right:15px;margin-left:15px;"><span style="font-size: 14pt;"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Messages</span></a>
-                    	<span class="anime" style="background-color:blue;width:100%;height:0px;"></span>
-                    </li>
-                </ul>
+            	
+                	<ul class="nav navbar-nav nav-animation">
+                    	<li>
+                        	<a href="${pageContext.request.contextPath}/" class="navTab">
+                        		<span><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <fmt:message key="nav.home"/></span>
+                        	</a>
+                        	<span class="anime"></span>
+                    	</li>
+                    	<li>
+                        	<a href="#" class="navTab">
+                        		<span><span class="glyphicon glyphicon-bell" aria-hidden="true"></span> Notifications</span>
+                        	</a>
+                    		<span class="anime"></span>
+                    	</li>
+                    	<li>
+                        	<a href="#" class="navTab">
+                        		<span><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Messages</span>
+                        	</a>
+                    		<span class="anime"></span>
+                    	</li>
+                	</ul>
                 
-     			<form class="navbar-form navbar-right">
-        			<button type="button" class="nav navbar-nav navbar-right btn userBackgroundColorScheme" aria-label="Left Align" data-toggle="modal" data-target="#messageModal">
-        				<span style="color: white;"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:white; padding-left:5px;"></span> Write message</span>
-					</button>
-				</form>
+     				<form class="navbar-form navbar-right">
+        				<button type="button" class="nav navbar-nav navbar-right btn userBackgroundColorScheme" aria-label="Left Align" data-toggle="modal" data-target="#messageModal">
+        					<span class="write-message"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Write message</span>
+						</button>
+					</form>
     			
-    			<form id="logoutForm" action="${pageContext.request.contextPath}/logout" method="post">
-    			<ul class="nav navbar-nav navbar-right" role="navigation">       				 
-        			<li class="dropdown">
-          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px;margin-top:8px;margin-bottom:10px;"><img alt="Brand" src="${pageContext.request.contextPath}${user.logoURL}" class="img-rounded" style="width: 35px;height:35px;margin-right:15px;"></a>
+    				<form id="logoutForm" action="${pageContext.request.contextPath}/logout" method="post">
+    					<ul class="nav navbar-nav navbar-right" role="navigation">       				 
+        					<li class="dropdown user-dropdown">
+          						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          							<img alt="Brand" src="${pageContext.request.contextPath}${user.logoURL}" class="img-rounded">
+          						</a>
           				         				
-          				<ul class="dropdown-menu" >
-            				<li><a href="${pageContext.request.contextPath}/user/${user.uniqueName}">${user.name}<br><span style="color:gray; font-size:10pt;">View profile</span></a></li>
-            				<li role="separator" class="divider"></li>
-            				<li><a href="#"><span style="color:gray; font-size:10pt;">Settings</span></a></li>
-            				<li><a href="javascript:$('#logoutForm').submit()"><span style="color:gray; font-size:10pt;">Logout</span></a></li>
-          				</ul>
-          				
-        			</li>
-      			</ul>	
-      			</form>			
+          						<ul class="dropdown-menu">
+            						<li><a href="${pageContext.request.contextPath}/user/${user.uniqueName}">${user.name}<br><span>View profile</span></a></li>
+            						<li role="separator" class="divider"></li>
+            						<li><a href="#"><span>Settings</span></a></li>
+            						<li><a href="javascript:$('#logoutForm').submit()"><span>Logout</span></a></li>
+          						</ul>          				
+        					</li>
+      					</ul>	
+      				</form>			
                 
-                <form class="navbar-form navbar-right" role="search">
-  					<div class="form-group" style="position: relative;">
-  						<i class="glyphicon glyphicon-search" style="position: absolute; padding: 8px; right: 0px; cursor: pointer; font-size: 13pt;"></i>
-    					<input type="text" class="form-control" placeholder="Search" style="border-radius:20px;">
- 					</div>
-				</form>
+                	<form class="navbar-form navbar-right" role="search">
+  						<div class="form-group user-search">
+  							<i class="glyphicon glyphicon-search"></i>
+    						<input type="text" class="form-control" placeholder="Search">
+ 						</div>
+					</form>
             	</div>     
             	
-            	</div>
-    			</nav>
+            </div>
+    	</nav>
             	
-            	<div class="modal fade" tabindex="-1" role="dialog" id="messageModal">
-  					<div class="modal-dialog">
-    					<div class="modal-content">
-      						<div class="modal-header">
-        						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        						<h4 class="modal-title" style="text-align:center;">Compose new message</h4>
-      						</div>
-      						<div class="modal-body" style="padding-bottom:60px;background-color:#e9f5fd;">
-        						<form id="messageForm2" action="${pageContext.request.contextPath}/user/addMessage" method="post">
-            						<input value="${user.id}" name="userId" hidden="true"/>
-            						<input value="${user.uniqueName}" name="userUniqueName" hidden="true"/>
+        <div class="modal fade" tabindex="-1" role="dialog" id="messageModal">
+  			<div class="modal-dialog">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        				<h4 class="modal-title" style="text-align:center;">Compose new message</h4>
+      				</div>
+      				<div class="modal-body user-modal-body">
+        				<form id="messageForm2" action="${pageContext.request.contextPath}/user/addMessage" method="post">
+            				<input value="${user.id}" name="userId" hidden="true"/>
+            				<input value="${user.uniqueName}" name="userUniqueName" hidden="true"/>
             			
-									<div style="position: relative;" id="addMessageDiv2" class="addMessageDiv">
-    									<textarea name="addMessageInput" class="addMessageInput form-control" style="padding-right: 30px; overflow: hidden; resize:none; padding-top: 10px; height: 40px;" placeholder="What's happening?" maxlength="140"></textarea>
-									</div>						
+							<div id="addMessageDiv2" class="addMessageDiv user-modal-textarea">
+    							<textarea name="addMessageInput" class="addMessageInput form-control" placeholder="What's happening?" maxlength="140"></textarea>
+							</div>						
 						
-									<div class="addMessageIconsDiv" style="padding-right: 15px;">
+							<div class="addMessageIconsDiv modal-icons">
+								<div id="previewDiv" class="modal-icons-preview" hidden="true">
+									<img id="preview" class="img-rounded" src="#" alt="your image"/>
+								</div>
 						
-						
-										<div id="previewDiv" style="siplay:block;padding:15px 0px 15px 0px;" hidden="true">
-											<img id="preview" src="#" alt="your image" style="border-bottom-right-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-top-left-radius: 5px;"/>
-										</div>
-						
-										<div class="col-md-1" style="text-align: center; overflow: hidden; border: none;display:block;">							
-											<span class = "glyphicon glyphicon-camera" aria-hidden = "true" style="display: block; padding-right: 20px;font-size: 15pt;color: #3366BB;"></span>
-											<input type="file" onchange="previewImage(this);" name="file" id="file" size="1" style="margin-top: -50px; margin-left:-410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 60px; cursor: pointer;">
-										</div>
+								<div class="col-md-1" style="text-align: center; overflow: hidden; border: none;display:block;">							
+									<span class = "glyphicon glyphicon-camera" aria-hidden = "true" style="display: block; padding-right: 20px;font-size: 15pt;color: #3366BB;"></span>
+									<input type="file" onchange="previewImage(this);" name="file" id="file" size="1" style="margin-top: -50px; margin-left:-410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 60px; cursor: pointer;">
+								</div>
 							
 							
-										<p style="color:#3366BB; font-size: 15pt;">
-										<!-- <a href="#"><span class = "col-md-1 glyphicon glyphicon-camera" aria-hidden = "true" style="display: block; padding-right: 30px;"></span></a> -->
-        								<a href="#"><span class = "col-md-1 glyphicon glyphicon-map-marker" aria-hidden = "true" style="display: block; padding-right: 30px;"></span></a>
-        								<a href="#"><span class = "col-md-1 glyphicon glyphicon-film" aria-hidden = "true" style="display: block; padding-right: 30px;"></span></a>        					
-        								<a href="#"><span class = "col-md-1 glyphicon glyphicon-list-alt" aria-hidden = "true" style="display: block; padding-right: 30px;"></span></a></p>
+								<p>
+								<!-- <a href="#"><span class = "col-md-1 glyphicon glyphicon-camera" aria-hidden = "true"></span></a> -->
+        						<a href="#"><span class = "col-md-1 glyphicon glyphicon-map-marker" aria-hidden = "true"></span></a>
+        						<a href="#"><span class = "col-md-1 glyphicon glyphicon-film" aria-hidden = "true"></span></a>        					
+        						<a href="#"><span class = "col-md-1 glyphicon glyphicon-list-alt" aria-hidden = "true"></span></a></p>
         					
-        								<span class = "letterCounter col-md-1 col-md-offset-4" style="display: block;" aria-hidden = "true" id="letterCounter"></span>
+        						<span class = "letterCounter col-md-1 col-md-offset-4" aria-hidden = "true" id="letterCounter"></span>
         						        					
-        								<button type="button" class="messageButton nav navbar-nav navbar-right btn btn-primary" aria-label="Left Align" style="color:#3366BB;" onclick="$('#messageForm2').submit()" disabled>
-        									<span style="color: white;"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:white; padding-left:5px;"></span> Write message</span>
-										</button>							
-									</div>
-								</form>
-      						</div>
-    					</div><!-- /.modal-content -->
-  					</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-            </c:if>
+        						<button type="button" class="messageButton nav navbar-nav navbar-right btn btn-primary" aria-label="Left Align" onclick="$('#messageForm2').submit()" disabled>
+        							<span style="color: white;"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:white; padding-left:5px;"></span> Write message</span>
+								</button>							
+							</div>
+						</form>
+      				</div>
+    			</div>
+  			</div>
+		</div>
+ 	</c:if>
             
-            <c:if test="${sessionScope.userType == 'GUEST'}">
-            	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin: 0px; border: none;background-color: white;border-bottom:1px double #656464;">
-        		<div class="container">
-        		
+    <!-- Navigation bar for user with role 'USER'-->
+	<c:if test="${sessionScope.userType == 'GUEST'}">
+    	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin: 0px; border: none;background-color: white;border-bottom:1px double #656464;">
+        	<div class="container">        		
             	<div class="navbar-header">
                 	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     	<span class="sr-only">Toggle navigation</span>
@@ -143,42 +149,29 @@
             	</div>
             
             	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="navTabAnimation">
-                        <a href="${pageContext.request.contextPath}/" class="navTab"><fmt:message key="nav.home"/></a>
-                        <span class="anime"></span>
-                    </li>
-                    <li class="navTabAnimation">
-                        <a href="${pageContext.request.contextPath}/about" class="navTab"><fmt:message key="nav.about"/></a>
-                        <span class="anime"></span>
-                    </li>
-                </ul>  
-                
-                <!-- <ul class="nav navbar-nav navbar-right" role="navigation">       				 
-        			<li class="dropdown">
-          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><fmt:message key="nav.language"/><span class="caret"></span></a>
-          				<ul class="dropdown-menu" >
-            				<li><a href="?language=en">English</a></li>
-            				<li><a href="?language=ru">Русский</a></li>
-          				</ul>
-        			</li>
-      			</ul>  -->	
-                
-                <form class="navbar-form navbar-right" role="search">
-  					<div class="form-group" style="position: relative;">
-  						<i class="glyphicon glyphicon-search" style="position: absolute; padding: 8px; right: 0px; cursor: pointer; font-size: 13pt;"></i>
-    					<input type="text" class="form-control" placeholder="Search" style="border-radius:20px;">
- 					</div>
-				</form>
+                	<ul class="nav navbar-nav">
+                    	<li class="navTabAnimation">
+                        	<a href="${pageContext.request.contextPath}/" class="navTab"><fmt:message key="nav.home"/></a>
+                        	<span class="anime"></span>
+                    	</li>
+                    	<li class="navTabAnimation">
+                        	<a href="${pageContext.request.contextPath}/about" class="navTab"><fmt:message key="nav.about"/></a>
+                        	<span class="anime"></span>
+                    	</li>
+                	</ul>  
+                               
+                	<form class="navbar-form navbar-right" role="search">
+  						<div class="form-group" style="position: relative;">
+  							<i class="glyphicon glyphicon-search" style="position: absolute; padding: 8px; right: 0px; cursor: pointer; font-size: 13pt;"></i>
+    						<input type="text" class="form-control" placeholder="Search" style="border-radius:20px;">
+ 						</div>
+					</form>
             	</div>   
-            	
-            	</div>
-    			</nav>
-            </c:if>            
+            </div>
+    	</nav>
+	</c:if>            
                
-        
-    
-     <header style="background-color: white; border-bottom: 1px double lightgray; border-top: 1px double lightgray;">
+	<header style="background-color: white; border-bottom: 1px double lightgray; border-top: 1px double lightgray;">
             <div class="row">
                 <div class="col-md-12">
                     <img src="${pageContext.request.contextPath}${user.headerURL}" alt="" style="width:100%; height: 400px;">
@@ -289,18 +282,18 @@
           				         				
           					<ul class="dropdown-menu" style="padding:11px;">            				
           						<li>
-            						<span class="userEditColorPalette" style="background-color: orange;"></span>
-            						<span class="userEditColorPalette" style="background-color: yellow;"></span>
-            						<span class="userEditColorPalette" style="background-color: lightgreen;"></span>
-            						<span class="userEditColorPalette" style="background-color: green;"></span>
-            						<span class="userEditColorPalette" style="background-color: lightblue;"></span>
-            						<span class="userEditColorPalette" style="background-color: blue;"></span>
-            						<span class="userEditColorPalette" style="background-color: lightgray;"></span>
+            						<span class="user-palette" style="background-color: orange;"></span>
+            						<span class="user-palette" style="background-color: yellow;"></span>
+            						<span class="user-palette" style="background-color: lightgreen;"></span>
+            						<span class="user-palette" style="background-color: green;"></span>
+            						<span class="user-palette" style="background-color: lightblue;"></span>
+            						<span class="user-palette" style="background-color: blue;"></span>
+            						<span class="user-palette" style="background-color: lightgray;"></span>
             					</li>
             					<li>
-            						<span class="userEditColorPalette" style="background-color: red;"></span>
-            						<span class="userEditColorPalette" style="background-color: #ff8080;"></span>
-            						<span class="userEditColorPalette" style="background-color: purple;"></span>
+            						<span class="user-palette" style="background-color: red;"></span>
+            						<span class="user-palette" style="background-color: #ff8080;"></span>
+            						<span class="user-palette" style="background-color: purple;"></span>
             					</li>
           					</ul>          				
         				</li>
