@@ -26,9 +26,7 @@
 </head>
 
 <body style="background-color: #f6f6f6;">
-    
-            <!-- Brand and toggle get grouped for better mobile display -->            
-            
+       
             <c:if test="${sessionScope.userType == 'USER'}">
             	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin: 0px; border: none;background-color: white;border-bottom:1px double #656464;">
         		<div class="container">
@@ -50,7 +48,7 @@
                 </ul>
                 
      			<form class="navbar-form navbar-right">
-        			<button type="button" class="nav navbar-nav navbar-right btn btn-primary" aria-label="Left Align" style="color:#3366BB;" data-toggle="modal" data-target="#messageModal">
+        			<button type="button" class="nav navbar-nav navbar-right btn userBackgroundColorScheme" aria-label="Left Align" data-toggle="modal" data-target="#messageModal">
         				<span style="color: white;"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:white; padding-left:5px;"></span> Write message</span>
 					</button>
 				</form>
@@ -266,7 +264,7 @@
 			</div>
             
             <c:if test="${sessionScope.user == user.uniqueName.toLowerCase()}">
-            	<div id="userEditInfo" class="col-md-3 well" style="padding-top: 10px;display:none;margin-top:40px;background-color:#dff0f4;border:none;">
+            	<div id="userEditInfo" class="col-md-3 well" style="padding: 10px;display:none;margin-top:40px;background-color:#dff0f4;border:none;">
             		<form id="userEditForm" action="${pageContext.request.contextPath}/editUser" method="POST">
             			<input value="${user.id}" name="userId" hidden="true"/>
             			<input value="${user.uniqueName}" name="userUniqueName" hidden="true"/>
@@ -282,11 +280,31 @@
   						</div>
   						<div class="form-group">
     						<input type="text" class="form-control" id="userEditSite" name="userEditSite" placeholder="Site" value="${user.site}">
-  						</div>
-  						<div class="from-group">
-  							<button type="submit" class="btn btn-primary" style="width:100%;">Theme color</button>	
-  						</div>	
+  						</div>  						
             		</form>
+  					
+            		<ul class="nav" role="navigation">       				 
+        				<li class="dropdown">
+          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px;"><button class="btn btn-primary" style="width:100%;">Theme color</button></a>
+          				         				
+          					<ul class="dropdown-menu" style="padding:11px;">            				
+          						<li>
+            						<span class="userEditColorPalette" style="background-color: orange;"></span>
+            						<span class="userEditColorPalette" style="background-color: yellow;"></span>
+            						<span class="userEditColorPalette" style="background-color: lightgreen;"></span>
+            						<span class="userEditColorPalette" style="background-color: green;"></span>
+            						<span class="userEditColorPalette" style="background-color: lightblue;"></span>
+            						<span class="userEditColorPalette" style="background-color: blue;"></span>
+            						<span class="userEditColorPalette" style="background-color: lightgray;"></span>
+            					</li>
+            					<li>
+            						<span class="userEditColorPalette" style="background-color: red;"></span>
+            						<span class="userEditColorPalette" style="background-color: #ff8080;"></span>
+            						<span class="userEditColorPalette" style="background-color: purple;"></span>
+            					</li>
+          					</ul>          				
+        				</li>
+        			</ul>	
             	</div>            	
             </c:if>
              

@@ -1,3 +1,7 @@
+.like a:hover{
+	color: purple;
+}
+
 .messageLink a{
 	color: black;
 }
@@ -14,12 +18,13 @@
 	color: #3366BB;
 }
 
-.retweet a:hover{
-	color: green;
-}
-
-.like a:hover{
-	color: purple;
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
 }
 
 .navTab :hover{
@@ -46,15 +51,29 @@
 
 .open > a{
     background-color: transparent !important;
-  }
+  }  
   
-.navbar-brand
+.retweet a:hover{
+	color: green;
+}
+
+.userBackgroundColorScheme
 {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    margin:0 auto;
+	background-color: #3366BB;
+}
+
+.userEditColorPalette
+{
+	 width:30px;
+	 height:30px;
+	 margin:1px;
+	 border-radius:5px;
+	 display: inline-block;
+}
+
+.userTextColorScheme
+{
+	color: #3366BB;
 }
 
 ::-webkit-file-upload-button { cursor:pointer; }

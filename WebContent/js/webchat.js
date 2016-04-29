@@ -156,6 +156,10 @@ function editProfileEvent(){
 	$('#editProfileSave').on('click', function(){
 		$('#userEditForm').submit();
 	})
+	
+	$('.userEditColorPalette').on('click', function(){
+		alert($(this).css('background-color'));
+	})
 }
 
 
