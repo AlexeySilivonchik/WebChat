@@ -28,7 +28,6 @@
 <body style="background-color: #f1f1f1;">	
   	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin: 0px; border: none;">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -36,7 +35,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!-- <a class="navbar-brand" href="${pageContext.request.contextPath}/">WebChat</a>  -->
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -60,10 +58,15 @@
         			</li>
       			</ul>				
 				
+				<form class="navbar-form navbar-right" role="search">
+  					<div class="form-group user-search">
+  						<i class="glyphicon glyphicon-search"></i>
+    						<input type="text" class="form-control" placeholder="Search">
+ 					</div>
+				</form>
             </div>      
         </div>
     </nav>
-
 
     <div class="container">    	   
         <div class="row">
@@ -86,11 +89,11 @@
   								<div class="from-group">
   									<button type="submit" class="btn btn-default pull-right"><fmt:message key="home.input.login.button"/></button>	
   								</div><br> 						
-  									<div class="checkbox">
-    									<label>
-      										<input type="checkbox"> <fmt:message key="home.input.login.checkbox"/>
-    									</label>
-  									</div>
+  								<div class="checkbox">
+    								<label>
+      									<input type="checkbox"> <fmt:message key="home.input.login.checkbox"/>
+    								</label>
+  								</div>
 							</form>
 						</div>
 						
@@ -108,14 +111,13 @@
     								<input type="password" class="form-control" id="registerInputPassword" name="registerInputPassword" placeholder="<fmt:message key="home.input.signin.password"/>">
   								</div>  
   								<div style="padding-bottom: 30px;">							
-  								<button type="submit" class="btn btn-default pull-right"><fmt:message key="home.input.signin.button"/></button>	</div>
+  									<button type="submit" class="btn btn-default pull-right"><fmt:message key="home.input.signin.button"/></button>	
+  								</div>
 							</form>
 						</div>
             		</div>
-            	</div>
-            	
+            	</div>            	
             	<p style="padding-left: 20px;">&copy; WebChat 2016</p>
-
             </div>
         </div>
     </div>

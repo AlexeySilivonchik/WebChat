@@ -31,8 +31,7 @@
     <c:if test="${sessionScope.userType == 'USER'}">
     	<nav class="navbar navbar-default navbar-static-top navbar-user" role="navigation">
         	<div class="container">            
-            	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            	
+            	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">            	
                 	<ul class="nav navbar-nav nav-animation">
                     	<li>
                         	<a href="${pageContext.request.contextPath}/" class="navTab">
@@ -83,8 +82,7 @@
     						<input type="text" class="form-control" placeholder="Search">
  						</div>
 					</form>
-            	</div>     
-            	
+            	</div>               	
             </div>
     	</nav>
             	
@@ -96,7 +94,7 @@
         				<h4 class="modal-title">Compose new message</h4>
       				</div>
       				<div class="modal-body user-modal-body">
-        				<form id="messageForm2" action="${pageContext.request.contextPath}/user/addMessage" method="post">
+        				<form id="messageForm2" action="${pageContext.request.contextPath}/user/addMessage" method="post" enctype="multipart/form-data">
             				<input value="${user.id}" name="userId" hidden="true"/>
             				<input value="${user.uniqueName}" name="userUniqueName" hidden="true"/>
             			
@@ -393,8 +391,7 @@
             					</span>
                     		</span><br>
                     	</a></p>
-            		</c:forEach>                 
-                    
+            		</c:forEach>                                    
                 </div>
 
                 <div class="well user-well notEditable">
