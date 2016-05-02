@@ -206,7 +206,7 @@
             					<img class="img-responsive img-rounded" src="${pageContext.request.contextPath}${user.logoURL}" alt="">
             				</div>
             				<div class="col-md-10">
-            					<p class="messageLink" style="color: gray;"><strong><a href="${pageContext.request.contextPath}/user/${user.uniqueName}">${user.name}</a></strong> @${user.uniqueName} - ${message.createDate}</p>
+            					<p class="user-link" style="color: gray;"><strong><a href="${pageContext.request.contextPath}/user/${user.uniqueName}">${user.name}</a></strong> @${user.uniqueName} - ${message.createDate}</p>
             					<p>${message.text}</p>
             					
             					<c:choose>
@@ -280,7 +280,7 @@
                     
                     <c:forEach items="${followingUsers}" var="following" begin="0" end="5">
                     	
-                    	<p class="messageLink"><a href="${pageContext.request.contextPath}/user/${following.uniqueName}">
+                    	<p class="user-link"><a href="${pageContext.request.contextPath}/user/${following.uniqueName}">
                     		<span class="row" style="cursor: pointer; display: block;" onclick="window.location='#';">
             					<span class="col-md-3">
             						<img style="height:50px; width:50px;" class="img-rounded" src="${pageContext.request.contextPath}${following.logoURL}" alt="">

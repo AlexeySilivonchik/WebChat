@@ -1,13 +1,243 @@
+#editProfile
+{
+	color:#3366BB;
+}
+
+#editProfileSave
+{
+	display: none;
+	color:white;
+}
+
+#editProfileCancel
+{
+	color:#3366BB;
+	display: none;
+	margin-right:15px;
+}
+
+#followButton
+{
+	color:#3366BB;
+}
+
+#paletteColor1
+{
+	background-color: orange;
+}
+
+#paletteColor2
+{
+	background-color: yellow;
+}
+
+#paletteColor3
+{
+	background-color: lightgreen;
+}
+
+#paletteColor4
+{
+	background-color: green;
+}
+
+#paletteColor5
+{
+	background-color: lightblue;
+}
+
+#paletteColor6
+{
+	background-color: blue;
+}
+
+#paletteColor7
+{
+	background-color: lightgray;
+}
+
+#paletteColor8
+{
+	background-color: red;
+}
+
+#paletteColor9
+{
+	background-color: #ff8080;
+}
+
+#paletteColor10
+{
+	background-color: purple;
+}
+
+#userEditInfo
+{
+	background-color:#dff0f4;
+	border:none;
+	display:none;
+	margin-top:40px;
+	padding: 10px;
+}
+
+#userEditInfo p 
+{
+	padding-left:10px;
+}
+
+#userEditName
+{
+	font-weight:bold;
+}
+
+#userInfo
+{
+	padding-top: 10px;
+}
+
+#userInfo > div 
+{
+	padding-left: 10px;
+	padding-right: 10px; 
+}
+
+#userInfo > div > div
+{
+	padding: 2px;
+}
+
+#userInfo > div > div > img
+{
+	height: 80px;
+}
+
+#userInfo > h3 > a
+{
+	color: black;
+}
+
+#userInfo > h4, #userInfo > h4 > a
+{
+	color: gray;
+}
+
+.image-row
+{
+	padding-left: 15px;
+	padding-right: 15px; 
+}
+
+.image-row > div
+{
+	padding: 0px;
+}
+
+.img-half-1
+{	
+	border-bottom-right-radius: 0px; 
+	border-top-right-radius: 0px; 
+	height: 200px; 	
+	padding-right:1px;
+}
+
+.img-half-2
+{
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	height: 200px;  
+	padding-left:1px;
+}
+
+.img-third-1
+{	
+	border-bottom-right-radius: 0px; 
+	border-top-right-radius: 0px; 	
+	height: 300px; 
+	padding-right:1px;
+}
+
+.img-third-2
+{
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top-left-radius: 0px;
+	height: 150px;   
+	padding-bottom:1px; 
+	padding-left:1px; 
+	width:100%;
+}
+
+.img-third-3
+{
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	height: 150px;  
+	padding-left:1px;  
+	padding-top:1px; 
+	width:100%;
+}
+
+.img-quarter-1
+{
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+	height: 300px;   
+	padding-right:1px;
+}
+
+.img-quarter-2
+{
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top-left-radius: 0px;
+	height: 100px;  
+	padding-bottom:1px;
+	padding-left:1px;  
+	width:100%;
+}
+
+.img-quarter-3
+{
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	height: 100px;  
+	padding-bottom:1px;
+	padding-left:1px;  
+	padding-top:1px; 
+	width:100%;
+}
+
+.img-quarter-4
+{
+	border-bottom-left-radius: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	height: 100px;  
+	padding-left:1px;  
+	padding-top:1px; 
+	width:100%;
+}
+
 .like a:hover{
 	color: purple;
 }
 
-.messageLink a{
-	color: black;
+.message
+{
+	background-color: white;
+	border: 1px double lightgray; 
+	border-top:none; 
+	padding: 20px; 
 }
 
-.messageLink a:hover{
-	color: #3366BB;
+.message-tab{
+	background-color: white;	
+	border: 1px double lightgray;  
+	border-radius: 5px 5px 0px 0px; 
+	margin: 10px 0px 0px 0px; 
+	padding: 10px;
 }
 
 .messageIcons a{
@@ -18,14 +248,24 @@
 	color: #3366BB;
 }
 
+.message-link
+{
+	color: gray;
+}
+
 .modal-icons
 {
 	padding-right: 15px;
 }
 
-.modal-icons > button
+.modal-icons > button > span
 {
-	color:#3366BB;
+	color: white;
+}
+
+.modal-icons > button > span > span
+{
+	padding-left:5px;
 }
 
 .modal-icons > p
@@ -34,15 +274,40 @@
 	font-size: 15pt;
 }
 
+.modal-icons > p > a > span
+{
+	display: block; 
+	padding-right: 30px;
+}
+
 .modal-icons > span
 {
 	display: block;
 }
 
-.modal-icons > p > a > span
-{
+.modal-icons-camera{
+	border: none;
+	display:block;
+	overflow: hidden; 
+	text-align: center; 
+}
+
+.modal-icons-camera > input{
+	cursor: pointer;
+	filter: alpha(opacity=0);
+	font-size: 150px;
+	height: 60px; 
+	opacity: 0;  
+	margin-left:-410px;
+	margin-top: -50px;  
+	-moz-opacity: 0;  
+}
+
+.modal-icons-camera > span{
+	color: #3366BB;
 	display: block; 
-	padding-right: 30px;
+	font-size: 15pt;
+	padding-right: 20px;
 }
 
 .modal-icons-preview
@@ -73,12 +338,12 @@
 	width: 100%;
 }
 
-.navbar-brand {
-	position: absolute;
-	width: 100%;
-	left: 0;
-	text-align: center;
-	margin: 0 auto;
+.navbar-guest
+{
+	background-color: white;
+	border: none;
+	border-bottom:1px double #656464;
+	margin: 0px; 
 }
 
 .navbar-user {
@@ -114,6 +379,21 @@
 	background-color: transparent !important;
 }
 
+.palette-dropdown > a
+{
+	padding:0px !important;
+}
+
+.palette-dropdown > a > button
+{
+	width:100%;
+}
+
+.palette-dropdown > ul
+{
+	padding:11px;
+}
+
 .retweet a:hover {
 	color: green;
 }
@@ -121,6 +401,16 @@
 .userBackgroundColorScheme
 {
 	background-color: #3366BB;
+}
+
+.user-body
+{
+	background-color: #f6f6f6;
+}
+
+.user-content-right
+{
+	margin: 10px 0px 0px 0px;
 }
 
 .user-dropdown>a {
@@ -140,10 +430,76 @@
 	width: 35px;
 }
 
+.user-following
+{
+	cursor: pointer; 
+	display: block;
+}
+
+.user-following img
+{
+	height:50px; 
+	width:100%;
+}
+
+.user-following-name
+{
+	padding-left:0px;
+}
+
+.user-header
+{
+	background-color: white; 
+	border-bottom: 1px double lightgray; 
+	border-top: 1px double lightgray;
+}
+
+.user-header-amount
+{
+	color:#3366BB;
+}
+
+.user-header-amount > a > span
+{
+	display: block;
+	text-align: center; 
+}
+
+.user-header-image > img
+{
+	height: 400px;
+	width:100%; 
+}
+
+.user-header-logo
+{
+	bottom: -70px; 
+	position: absolute; 
+	z-index: 1;
+}
+
+.user-header-logo > img
+{
+	width:75%;
+}
+
+.user-link a{
+	color: black;
+}
+
+.user-link a:hover{
+	color: #3366BB;
+}
+
 .user-modal-body
 {
 	background-color:#e9f5fd;
 	padding-bottom:60px;
+}
+
+.user-modal-header > h4
+{
+	text-align:center;
 }
 
 .user-modal-textarea
@@ -168,6 +524,11 @@
 	display: inline-block;
 }
 
+.user-profile-buttons
+{
+	margin-bottom: 10px;
+}
+
 .user-search {
 	position: relative;
 }
@@ -187,6 +548,11 @@
 .userTextColorScheme
 {
 	color: #3366BB;
+}
+
+.user-well
+{
+	background-color:white;
 }
 
 .write-message {

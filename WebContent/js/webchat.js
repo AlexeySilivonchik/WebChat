@@ -155,12 +155,20 @@ function previewImage(input) {
 function editProfileEvent(){
 	$('#editProfileSave').on('click', function(){
 		$('#userEditForm').submit();
-	})
+	});
 	
 	$('.userEditColorPalette').on('click', function(){
 		alert($(this).css('background-color'));
-	})
-}
+	});
+	
+	$('#editProfile').on('click', function(){
+		editProfile();
+	});
+	
+	$('#editProfileCancel').on('click', function(){
+		editProfileCancel();
+	});
+};
 
 
 function editProfile(){
@@ -175,7 +183,7 @@ function editProfile(){
 	
 	$('#userInfo').css('display', 'none');
 	$('#userEditInfo').css('display', 'block');
-}
+};
 
 
 function editProfileCancel(){
@@ -190,6 +198,6 @@ function editProfileCancel(){
 	
 	$('#userInfo').css('display', 'block');
 	$('#userEditInfo').css('display', 'none');
-}
+};
 
 
